@@ -52,6 +52,7 @@ const createPost = async (post) => {
               path = '/createblog'
               element = {
                 <>
+                <h1>Create a Blog</h1>
                 <CreatePost createPost={createPost}/>
                 </>
               }
