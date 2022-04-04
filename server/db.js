@@ -1,20 +1,20 @@
-const mongoose = require('mongoose');
-
+const {MongoClient, ObjectId} = require("mongodb");
 const dotenv = require('dotenv');
 
 dotenv.config();
 
-const mongoDB = process.env.DB_URI;
-mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+const uri = process.env.DB_URI;
 
-const BlogPost = mongoose.Schema({
-    blogTitle : String,
-    blogDescription : String,
-        
-})
+const client = new MongoClient(uri);
 
-const Blogs = mongoose.model("Blogs", BlogPost);
-
-module.exports = Blogs;
+module.exports = {
+    dbConnect: async function dbConnect() {
+        try {
+            await client.connect();
+            console.log("Connection Successful");
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+};

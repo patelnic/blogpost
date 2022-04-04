@@ -15,6 +15,9 @@ app.use(cors());
 
 app.use(express.static('public'));
 
+console.log("App is running on port " + port);
+
 mydb.dbConnect().then (() => app.listen(port, () => {
     console.log("App is running on port " + port);
 }));
+
