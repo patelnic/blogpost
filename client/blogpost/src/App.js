@@ -3,10 +3,11 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Header from './components/Header';
+import CreatePost from './components/CreatePost';
 
 function App() {
   const appName = "Blog Post"
-  const [show, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [posts, setPost] = useState([]);
 
 useEffect(() => {
@@ -36,19 +37,28 @@ const createPost = async (post) => {
         <a href = '/'> Home</a>
         <a href = '/createblog'>Create Blog</a>
         <Router>
-        <Routes>
-          <Route
-            path='/'
-            element = {
-              <>
-              <Header
-                appName = {appName}
-              />
-              </>
-            }
-          />
+          <Routes>
+            <Route
+              path='/'
+              element = {
+                <>
+                <Header
+                  appName = {appName}
+                />
+                </>
+              }
+           />
+            <Route
+              path = '/createblog'
+              element = {
+                <>
+                <CreatePost createPost={createPost}/>
+                </>
+              }
+
+            />
           
-        </Routes>
+          </Routes>
         </Router>
       </div>
   );
