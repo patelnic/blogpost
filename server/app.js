@@ -14,6 +14,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use(express.static('public'));
+app.set("view engine", "pug");
+
+const blogPost = require("./routes/posts.js");
+app.use("/post", blogPost.router);
 
 console.log("App is running on port " + port);
 
