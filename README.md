@@ -17,4 +17,5 @@ Our React App is running on ```port 3000``` and server is up and running on ```p
 - Displayed the created blog on the landing page
 - Performed Create(POST) and Read(GET) operations
 
-![Screen Shot 2022-04-04 at 9 37 54 PM](https://user-images.githubusercontent.com/25631469/161684461-da227449-8a5b-484e-bf8c-eed14a7aa4fa.png)
+<img width="1305" alt="Screen Shot 2022-04-05 at 3 28 37 PM" src="https://user-images.githubusercontent.com/25631469/161861429-1814bdc2-6696-4fc2-9cd9-6ca6d65daf5a.png">
+<img width="1338" alt="Screen Shot 2022-04-05 at 3 28 51 PM" src="https://user-images.githubusercontent.com/25631469/161861436-ee5dcc79-5135-4323-954d-5ba0daa2d6f9.png">
