@@ -12,6 +12,7 @@ form {
 
 }
 
+
 label {
   margin-right: 10px;
 }
@@ -63,3 +64,42 @@ img {
   height: 100px;
   width: 100px;
 }
+
+.list_container {
+  display: table;   /* Allow the centering to work */
+	margin: 0 auto;
+  width: 80%;
+}
+
+ol {
+  margin:0;
+  padding: 20px;
+  top: 50%;
+  justify-content: center;
+  flex-direction: column-reverse;
+  display: flex;
+}
+
+
+ol li {
+  position: relative;
+  list-style: none;
+  padding: 20px;
+  border-bottom: 1px solid black;
+  display: block;
+  background-color: blanchedalmond;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+}
+
+ol li img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  align-items: center;
+}
+
+
+
