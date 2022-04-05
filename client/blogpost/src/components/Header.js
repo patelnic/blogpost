@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function Header(props) {
-    return (
-        <header className = "header">
-            <h1>{props.appName}</h1>
-        </header>
-        )
+export default function Header({appName, showForm, onAddClick}) {
+  return (
+    <header className="header">
+        <h1>{appName}</h1>
+    </header>
+  );
 }

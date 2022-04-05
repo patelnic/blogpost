@@ -19,9 +19,8 @@ app.set("view engine", "pug");
 const blogPost = require("./routes/posts.js");
 app.use("/", blogPost.router);
 
-console.log("App is running on port " + port);
+app.use(express.static('public'));
 
 mydb.dbConnect().then (() => app.listen(port, () => {
     console.log("App is running on port " + port);
 }));
-

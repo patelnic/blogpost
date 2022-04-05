@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Header from "./components/Header"
 import PostsList from "./components/PostsList"
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import CreatePost from './components/CreatePost';
 
 
 function App() {
@@ -21,6 +22,18 @@ function App() {
     fetchPost();
   }, [])
 
+const createPost = async (post) => {
+  console.log("Added", post);
+  const data = await fetch("http://localhost:4000/posts",
+  {
+    method: 'POST',
+    headers: {"Content-type":"application/json"}, body: JSON.stringify(post),
+  });
+  const newPost = await data.json();
+  console.log(data);
+  setPost([...posts, newPost]);
+}
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -36,6 +49,16 @@ function App() {
           </>
           }
           />
+          <Route
+              path = '/createblog'
+              element = {
+                <>
+                <h1>Create a Blog</h1>
+                <CreatePost createPost={createPost}/>
+                </>
+              }
+
+            />
         </Routes>
       </div>
     </BrowserRouter>
