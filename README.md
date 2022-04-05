@@ -14,4 +14,5 @@ Our React App is running on ```port 3000``` and server is up and running on ```p
 - Created the basic landing page layout for the blogpost application
 - Created React components for base functionality
 - Added a form to "Create a Blog" by adding Title, Description, Images and Date
-- Display the created blog on the landing page.
+- Displayed the created blog on the landing page
+- Performed Create(POST) and Read(GET) operations
