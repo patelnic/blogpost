@@ -5,21 +5,18 @@ import CreatePost from './CreatePost';
 export default function Post({post}) {
   return ( 
     <>
-    <li>
-        <div className = "post">
-            <p>
-                {post.title}
-            </p>
-            <p>
-                {post.description}
-            </p>
-            <img src= {post.images} alt="images" />
-            <p>
-                {post.date}
-            </p>
-            
-        </div>
-    </li>
+        <li>
+                <img className = "blog_post_image" src= {post.images} alt="images" />
+                <h2>
+                    {post.title}
+                </h2>
+                <p>
+                    {post.date}
+                </p>
+                <p>
+                    {post.description}
+                </p>
+        </li>
     </>
   );
   } 

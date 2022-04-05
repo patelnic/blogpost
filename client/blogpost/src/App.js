@@ -46,9 +46,11 @@ const createPost = async (post) => {
           <>
             <Header appName = {appName}
             />
-              <ul>
-                <PostsList postsList = {postsList}/>
-              </ul>
+              <div className = "list_container">
+                <ol>
+                  <PostsList postsList = {postsList}/>
+                </ol>
+              </div>
           </>
           }
           />
