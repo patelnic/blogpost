@@ -13,7 +13,11 @@ export default function Post({post}) {
             <p>
                 {post.description}
             </p>
-            <img src= {post.images} alt="images" />
+            {/* {post.imageURLs.map(image => {
+            <img src={image} alt='image'/>
+            console.log(image)
+            })} */}
+            <img src= {post.imageURLs[0]} alt="images" />
             <p>
                 {post.date}
             </p>

@@ -14,6 +14,7 @@ export default function CreatePost ({createPost}){
         if(images.length < 1) return;
         const newImageURLs = [];
         images.forEach(image => newImageURLs.push(URL.createObjectURL(image)));
+        console.log(newImageURLs);
         setImageURLs(newImageURLs);
     }, [images]
     );
@@ -27,7 +28,7 @@ export default function CreatePost ({createPost}){
             navigate('/createblog');
             return;
         }
-        createPost({title, description, images, date})
+        createPost({title, description, imageURLs, date})
         setTitle('');
         setDescription('');
         setImages('');
