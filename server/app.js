@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.set("view engine", "pug");
 
 const blogPost = require("./routes/posts.js");
-app.use("/post", blogPost.router);
+app.use("/", blogPost.router);
 
 console.log("App is running on port " + port);
 

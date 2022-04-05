@@ -6,12 +6,12 @@ dotenv.config();
 const uri = process.env.DB_URI;
 
 const client = new MongoClient(uri);
-const dbName = 'blogpost';
+const dbName = 'blogs';
 module.exports = {
     dbConnect: async function dbConnect() {
         try {
             await client.connect();
-            console.log("Connection Successful");
+            console.log("DB Connection Successful");
         }
         catch (err) {
             console.log(err);
@@ -28,7 +28,7 @@ module.exports = {
     },
     findAllBlogPost: async function findAllBlogPost() {
         try {
-            const data = await client.db(dbName).collections("posts").find()
+            const data = await client.db(dbName).collection('posts').find();
             return data;
         } catch (err) {
             console.log(err);
