@@ -4,7 +4,7 @@
 
 # Set up
 
-Our React App is running on port 3000 and server is up and running on port 4000. Clone the repo and perform nodemon app.js for the server-side code and npm start for the client-side code.
+Our React App is running on ```port 3000``` and server is up and running on port 4000. Clone the repo and perform nodemon app.js for the server-side code and npm start for the client-side code.
 
 # Iteration-1
 
