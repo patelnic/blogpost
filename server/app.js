@@ -16,8 +16,8 @@ app.use(cors());
 app.use(express.static('public'));
 app.set("view engine", "pug");
 
-const blogPost = require("./routes/posts.js");
-app.use("/", blogPost.router);
+const posts = require("./routes/posts.js");
+app.use("/", posts.router);
 
 app.use(express.static('public'));
 

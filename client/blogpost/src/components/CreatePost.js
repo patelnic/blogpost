@@ -7,10 +7,11 @@ export default function CreatePost ({createPost}){
     const [title, setTitle] = useState(" ");
     const [description, setDescription] = useState(" ");
     const [images, setImages] = useState([]);
-    const[imageURLs, setImageURLs] = useState([]);
+    const [imageURLs, setImageURLs] = useState([]);
     const [date, setDate] = useState(" "); 
     const navigate = useNavigate();
     useEffect(() => {
+        if(images.length < 1) return;
         const newImageURLs = [];
         images.forEach(image => newImageURLs.push(URL.createObjectURL(image)));
         setImageURLs(newImageURLs);
@@ -23,9 +24,10 @@ export default function CreatePost ({createPost}){
         e.preventDefault();
         if(!title || !description){
             alert("Enter all the details!");
+            navigate('/createblog');
             return;
         }
-        createPost({text: title, text: description, file: images, Date: date})
+        createPost({title, description, images, date})
         setTitle('');
         setDescription('');
         setImages('');
@@ -33,6 +35,7 @@ export default function CreatePost ({createPost}){
         navigate("/");
     };
     return (
+    <>
     <form onSubmit = {onSubmit}>
         <div className="form-control">
             <label>Title</label>
@@ -53,4 +56,5 @@ export default function CreatePost ({createPost}){
         </div>
         <input type="submit" value="Submit"/>
     </form>
+    </>
 )}

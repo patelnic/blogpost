@@ -19,7 +19,7 @@ module.exports = {
     },
     saveBlogPost: async function saveBlogPost(blogPost) {
         try {
-            const data = await client.db(dbName).collections("posts").insertOne(blogPost);
+            const data = await client.db(dbName).collection('posts').insertOne(blogPost);
             console.log("Blog Post creation successful")
             return data;
         } catch (err) {
