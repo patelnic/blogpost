@@ -11,6 +11,7 @@ import CreatePost from './components/CreatePost';
 function App() {
   const appName = 'BlogPost';
   const [postsList, setPost] = useState([]);
+  const [posts, newPost] = useState([]);
 
   useEffect(() => {
     async function fetchPost() {
@@ -31,12 +32,14 @@ const createPost = async (post) => {
   });
   const newPost = await data.json();
   console.log(data);
-  setPost([...posts, newPost]);
+  newPost([...posts, newPost]);
 }
 
   return (
     <BrowserRouter>
       <div className="App">
+        <a href = '/'>Home</a>
+        <a href = '/createblog'>Create Blog</a>
         <Routes>
           <Route path = '/'
           element = { 
