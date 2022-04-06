@@ -6,6 +6,8 @@ import Header from "./components/Header"
 import PostsList from "./components/PostsList"
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import CreatePost from './components/CreatePost';
+import BlogDetails from './components/BlogDetails';
+import PostList from './components/PostsList';
 
 
 function App() {
@@ -37,6 +39,14 @@ const createPost = async (post) => {
   setPost([...postsList, post]);
 }
 
+const deleteBlogPost = async(id) => {
+  console.log("delete", id);
+  await fetch('http://localhost:4000/' + id, { method: 'DELETE'});
+
+  setPost(postsList.filter((post) => post._id == id));
+  };
+
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -65,6 +75,9 @@ const createPost = async (post) => {
                 </>
               }
 
+            />
+            <Route 
+              path = "/:blogId" element = {<BlogDetails  />}
             />
         </Routes>
       </div>
