@@ -1,7 +1,12 @@
 const express = require("express");
+const path = require('path')
 const mydb = require('./db');
 const app = express();
 
+<<<<<<< HEAD
+=======
+app.use(express.static(path.resolve(__dirname, "./client/blogpost/build")));
+>>>>>>> a51f2fdfe38f5cd6caba953636e455ef15bfff73
 app.use(express.json());
 
 const cors = require("cors");
