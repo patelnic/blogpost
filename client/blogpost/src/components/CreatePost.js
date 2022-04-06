@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react" ;
-import {useNavigate} from "react-router-dom";
+import {Route, useNavigate} from "react-router-dom";
+import App from "../App";
 import '../App.css'
 
 
@@ -9,7 +10,7 @@ export default function CreatePost ({createPost}){
     const [images, setImages] = useState([]);
     const [imageURLs, setImageURLs] = useState([]);
     const options = { 
-        month: '2-digit', 
+        month: 'long', 
         day: '2-digit',
         year: 'numeric', 
       };
@@ -31,17 +32,15 @@ export default function CreatePost ({createPost}){
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if(!title || !description){
+        if(title == " " || description == " "){
             alert("Enter all the details!");
-            navigate('/createblog');
             return;
         }
         createPost({title, description, imageURLs, date})
         setTitle('');
         setDescription('');
         setImages('');
-        //setDate('');
-        navigate("/");
+        navigate('/');
     };
     return (
     <>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Header({appName, showForm, onAddClick}) {
+export default function Header({appName}) {
   return (
     <header className="header">
         <h1>{appName}</h1>
