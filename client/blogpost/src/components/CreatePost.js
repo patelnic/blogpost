@@ -7,7 +7,7 @@ export default function CreatePost ({createPost}) {
     const [title, setTitle] = useState(" ");
     const [description, setDescription] = useState(" ");
     const [images, setImages] = useState([]);
-    const [imageURLs, setImageURLs] = useState([]);
+    //const [imageURLs, setImageURLs] = useState([]);
     const options = { 
         month: 'long', 
         day: '2-digit',
@@ -16,7 +16,7 @@ export default function CreatePost ({createPost}) {
     const date =  new Date().toLocaleDateString('en-US', options);
  
     const navigate = useNavigate();
-    
+    /*
     useEffect(() => {
         if(images.length < 1) return;
         const newImageURLs = [];
@@ -27,6 +27,20 @@ export default function CreatePost ({createPost}) {
     );
     function onImageChange(e) {
         setImages([...e.target.files]);
+    }*/
+        
+    function onImageChange(e) {
+        const reader = new FileReader();
+      
+        reader.addEventListener("load", function () {
+          // convert image file to base64 string
+        setImages([reader.result]);
+
+        }, false);
+      
+        for (const index in e.target.files) {
+            reader.readAsDataURL(e.target.files[index]);
+      }
     }
 
     const onSubmit = (e) => {
@@ -35,7 +49,7 @@ export default function CreatePost ({createPost}) {
             alert("Enter all the details!");
             return;
         }
-        createPost({title, description, imageURLs})
+        createPost({title, description, images, date})
         setTitle('');
         setDescription('');
         setImages('');
@@ -55,7 +69,6 @@ export default function CreatePost ({createPost}) {
         <div className="form-control">
             <label>Image</label>
             <input type="file" multiple accept="image/*" onChange={onImageChange} />
-            {imageURLs.map(imageSrc => <img src={imageSrc} />) }
         </div>
         <input type="submit" value="Submit"/>
     </form>
