@@ -6,7 +6,7 @@ export default function Post({post}) {
   return ( 
     <>
     <li>
-        <img className = "blog_post_image" src= {post.imageURLs[0]} alt="images" />
+        <img className = "blog_post_image" src= {post.imageURLs} alt="images" />
             <Link to = {'/' + post._id}><h2>{post.title}</h2></Link>
             <p>
                 {post.description}

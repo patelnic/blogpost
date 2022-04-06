@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react" ;
 import {Route, useNavigate} from "react-router-dom";
 import App from "../App";
-import '../App.css'
-
+import '../App.css';
 
 export default function CreatePost ({createPost}) {
     const [title, setTitle] = useState(" ");
@@ -36,7 +35,7 @@ export default function CreatePost ({createPost}) {
             alert("Enter all the details!");
             return;
         }
-        createPost({title, description, imageURLs, date})
+        createPost({title, description, imageURLs})
         setTitle('');
         setDescription('');
         setImages('');
