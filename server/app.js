@@ -2,7 +2,7 @@ const express = require("express");
 const mydb = require('./db');
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, "./client/blogpost/build")));
+app.use(express.static(express.json()));
 
 app.use(express.json());
 
