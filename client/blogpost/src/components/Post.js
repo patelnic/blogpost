@@ -13,7 +13,7 @@ export default function Post({post}) {
             <p>
                 {post.description}
             </p>
-            <p>
+            <p className="date_form">
                 {post.date}
             </p>
     </li>

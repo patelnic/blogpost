@@ -9,8 +9,15 @@ export default function CreatePost ({createPost}){
     const [description, setDescription] = useState(" ");
     const [images, setImages] = useState([]);
     const [imageURLs, setImageURLs] = useState([]);
-    const [date, setDate] = useState(" "); 
+    const options = { 
+        month: 'long', 
+        day: '2-digit',
+        year: 'numeric', 
+      };
+    const date =  new Date().toLocaleDateString('en-US', options);
+ 
     const navigate = useNavigate();
+    
     useEffect(() => {
         if(images.length < 1) return;
         const newImageURLs = [];
@@ -22,6 +29,7 @@ export default function CreatePost ({createPost}){
     function onImageChange(e) {
         setImages([...e.target.files]);
     }
+
     const onSubmit = (e) => {
         e.preventDefault();
         if(title == " " || description == " "){
@@ -32,7 +40,6 @@ export default function CreatePost ({createPost}){
         setTitle('');
         setDescription('');
         setImages('');
-        setDate('');
         navigate('/');
     };
     return (
@@ -50,10 +57,6 @@ export default function CreatePost ({createPost}){
             <label>Image</label>
             <input type="file" multiple accept="image/*" onChange={onImageChange} />
             {imageURLs.map(imageSrc => <img src={imageSrc} />) }
-        </div>
-        <div className="form-control">
-            <label>Date and Time</label>
-            <input type="text" value={date} onChange={(e) => {setDate(e.target.value)}}></input>
         </div>
         <input type="submit" value="Submit"/>
     </form>
