@@ -1,8 +1,10 @@
 const express = require("express");
+const path = require('path')
 const mydb = require('./db');
 const app = express();
 
-app.use(express.static(express.json()));
+app.use(express.static(path.resolve(__dirname, "./client/blogpost/build")));
+app.use(express.json());
 
 const cors = require("cors");
 require('dotenv').config();
