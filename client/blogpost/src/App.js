@@ -31,8 +31,10 @@ const createPost = async (post) => {
     headers: {"Content-type":"application/json"}, body: JSON.stringify(post),
   });
   const newPost = await data.json();
-  console.log(data);
-  setPost([...postsList, newPost]);
+  console.log(newPost);
+  
+  post._id = newPost.insertedId;
+  setPost([...postsList, post]);
 }
 
   return (
