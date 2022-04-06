@@ -21,6 +21,11 @@ label {
   margin-bottom: 20px;
 }
 
+form img {
+  height: 100px;
+  width: 100px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
