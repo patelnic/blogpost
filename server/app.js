@@ -4,9 +4,6 @@ const app = express();
 
 app.use(express.static(express.json()));
 
-app.use(express.json());
-
-
 const cors = require("cors");
 require('dotenv').config();
 const port = process.env.PORT || 4000;
