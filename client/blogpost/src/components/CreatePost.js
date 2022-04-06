@@ -4,7 +4,7 @@ import App from "../App";
 import '../App.css'
 
 
-export default function CreatePost ({createPost}){
+export default function CreatePost ({createPost}) {
     const [title, setTitle] = useState(" ");
     const [description, setDescription] = useState(" ");
     const [images, setImages] = useState([]);
