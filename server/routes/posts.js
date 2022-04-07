@@ -7,6 +7,7 @@ const db = require("../db.js");
 
 router.get("/", async function(req, res) {
     try {
+        console.log("in get all post");
         const cursor = await db.findAllBlogPost();
         const data = await cursor.toArray();
         res.json(data);
