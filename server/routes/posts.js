@@ -25,4 +25,15 @@ router.post('/', async function (req, res) {
     }
 });
 
+router.delete("/:id", async function(req, res) {
+    try {
+        const id = req.params.id;
+        const data = await db.deleteBlogPost(id)
+
+        res.json(data);
+    } catch(err) {
+        console.log(err)
+    }
+})
+
 module.exports.router = router;
