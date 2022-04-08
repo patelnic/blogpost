@@ -96,14 +96,13 @@ ol li {
   background-color: blanchedalmond;
   margin-bottom: 20px;
   border-radius: 10px;
-
 }
 
 ol li img {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 30%;
+  width: 22%;
   align-items: center;
 }
 
@@ -111,4 +110,19 @@ ol li img {
 .date_form {
   text-align: right;
   color: rgb(167, 161, 161);
+}
+
+.align-left {
+  padding-top: 20px;
+  text-align: left;
+  margin-left: 340px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+.header {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color:rgb(194, 55, 62);
+  font-size: x-large;
 }

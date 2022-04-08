@@ -45,7 +45,7 @@ export default function CreatePost ({createPost}) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if(title == " " || description == " "){
+        if(title == " " || description == " " || images == null){
             alert("Enter all the details!");
             return;
         }
@@ -60,15 +60,15 @@ export default function CreatePost ({createPost}) {
     <form onSubmit = {onSubmit}>
         <div className="form-control">
             <label>Title</label>
-            <input type="text" value={title} onChange={(e) => {setTitle(e.target.value)}}/>
+            <input type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
         </div>
         <div className="form-control">
             <label>Description</label>
-            <textarea type="text" value={description} onChange={(e) => {setDescription(e.target.value)}}/>
+            <textarea type="text" value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
         </div>
         <div className="form-control">
             <label>Image</label>
-            <input type="file" multiple accept="image/*" onChange={onImageChange} />
+            <input type="file" accept="image/*" onChange={onImageChange} required/>
         </div>
         <input type="submit" value="Submit"/>
     </form>
