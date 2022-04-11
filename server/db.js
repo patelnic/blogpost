@@ -35,10 +35,19 @@ module.exports = {
         }
     }, 
     deleteBlogPost: async function deleteBlogPost(id) {
+        
         try {
-            const data = await client.db(dbName).collection('post').deleteOne({_id : ObjectId(id)});
+            const data = await client.db(dbName).collection('posts').deleteOne({_id : ObjectId(id)});
             return data;
         } catch(err) {
+            console.log(err);
+        }
+    },
+    findPost: async function findPost(id) {
+        try {
+            const data = await client.db(dbName).collection('posts').findOne({_id : ObjectId(id)});
+            return data;
+        } catch (err) {
             console.log(err);
         }
     }

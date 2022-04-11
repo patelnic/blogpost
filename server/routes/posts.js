@@ -7,8 +7,21 @@ const db = require("../db.js");
 
 router.get("/", async function(req, res) {
     try {
+        console.log("in get all");
         const cursor = await db.findAllBlogPost();
         const data = await cursor.toArray();
+        res.json(data);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+router.get("/:id", async function(req, res) {
+    try {
+        console.log("in find one");
+        const id = req.params;
+        console.log(id);
+        const data = await db.findPost(id);
         res.json(data);
     } catch (err) {
         console.log(err);
@@ -28,8 +41,8 @@ router.post('/', async function (req, res) {
 router.delete("/:id", async function(req, res) {
     try {
         const id = req.params.id;
+        console.log(id);
         const data = await db.deleteBlogPost(id)
-
         res.json(data);
     } catch(err) {
         console.log(err)

@@ -19,7 +19,6 @@ function App() {
     async function fetchPost() {
       const data = await fetch("http://localhost:4000/");
       const jsonData = await data.json();
-      console.log("in useEffect ", jsonData);
       setPost(jsonData);
     }
     fetchPost();
