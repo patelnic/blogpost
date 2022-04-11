@@ -46,7 +46,7 @@ const deleteBlogPost = async(id) => {
 
 
   return (
-    <BrowserRouter>
+   
       <div className="App">
         <Link to = '/'>Home</Link>
         <Link to = '/createblog'>Create Blog</Link>
@@ -78,7 +78,6 @@ const deleteBlogPost = async(id) => {
             />
         </Routes>
       </div>
-    </BrowserRouter>
   );
 }
 
