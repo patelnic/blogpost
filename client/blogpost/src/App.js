@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import CreatePost from './components/CreatePost';
 import BlogDetails from './components/BlogDetails';
 import PostList from './components/PostsList';
+import LoginButton from './components/LoginButton';
 
 
 function App() {
@@ -50,6 +51,7 @@ const deleteBlogPost = async(id) => {
       <div className="App">
         <Link to = '/'>Home</Link>
         <Link to = '/createblog'>Create Blog</Link>
+        <LoginButton />
         <Routes>
           <Route path = '/'
           element = { 
