@@ -16,9 +16,8 @@ function App() {
  
   useEffect(() => {
     async function fetchPost() {
-      const data = await fetch("/post");
+      const data = await fetch("/posts");
       const jsonData = await data.json();
-      console.log("in useEffect ", jsonData);
       setPost(jsonData);
     }
     fetchPost();
@@ -40,7 +39,7 @@ const createPost = async (post) => {
 
 const deleteBlogPost = async(id) => {
   console.log("delete", id);
-  await fetch('/post' + id, { method: 'DELETE'});
+  await fetch('/posts' + id, { method: 'DELETE'});
 
   setPost(postsList.filter((post) => post._id == id));
   };
@@ -49,8 +48,8 @@ const deleteBlogPost = async(id) => {
   return (
     <BrowserRouter>
       <div className="App">
-        <a href = '/'>Home</a>
-        <a href = '/createblog'>Create Blog</a>
+        <Link to = '/'>Home</Link>
+        <Link to = '/createblog'>Create Blog</Link>
         <Routes>
           <Route path = '/'
           element = { 
@@ -73,7 +72,6 @@ const deleteBlogPost = async(id) => {
                 <CreatePost createPost={createPost}/>
                 </>
               }
-
             />
             <Route 
               path = "/:blogId" element = {<BlogDetails  />}
