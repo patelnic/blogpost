@@ -6,6 +6,8 @@ const app = express();
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb'}));
 
+app.use(express.static(__dirname + "/public"));
+
 const cors = require("cors");
 require('dotenv').config();
 const port = process.env.PORT || 4000;
@@ -21,7 +23,7 @@ app.set("view engine", "pug");
 const posts = require("./routes/posts.js");
 app.use("/", posts.router);
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 mydb.dbConnect().then (() => app.listen(port, () => {
     console.log("App is running on port " + port);

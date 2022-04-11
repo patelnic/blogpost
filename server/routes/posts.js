@@ -7,7 +7,7 @@ const db = require("../db.js");
 
 router.get("/posts", async function(req, res) {
     try {
-        console.log("in get all");
+        console.log("in get all post");
         const cursor = await db.findAllBlogPost();
         const data = await cursor.toArray();
         res.json(data);
@@ -38,7 +38,7 @@ router.post('/createblog', async function (req, res) {
     }
 });
 
-router.delete("/:id", async function(req, res) {
+router.delete("/posts/:id", async function(req, res) {
     try {
         const id = req.params.id;
         console.log(id);
