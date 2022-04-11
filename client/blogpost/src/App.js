@@ -10,11 +10,13 @@ import BlogDetails from './components/BlogDetails';
 import PostList from './components/PostsList';
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 function App() {
   const appName = 'BlogPost';
   const [postsList, setPost] = useState([]);
+  const {isAuthenticated, isLoading} = useAuth0();
  
   useEffect(() => {
     async function fetchPost() {
@@ -48,12 +50,12 @@ const deleteBlogPost = async(id) => {
 
 
   return (
-   
+    <>
+      {isLoading? <p>Loading</p>:
       <div className="App">
         <Link to = '/'>Home</Link>
         <Link to = '/createblog'>Create Blog</Link>
-        <LoginButton />
-        <LogoutButton />
+        {isAuthenticated?<LogoutButton />:<LoginButton />}
         <Routes>
           <Route path = '/'
           element = { 
@@ -82,6 +84,8 @@ const deleteBlogPost = async(id) => {
             />
         </Routes>
       </div>
+    }
+    </>
   );
 }
 
