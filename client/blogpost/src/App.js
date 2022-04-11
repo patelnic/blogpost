@@ -9,6 +9,7 @@ import CreatePost from './components/CreatePost';
 import BlogDetails from './components/BlogDetails';
 import PostList from './components/PostsList';
 import LoginButton from './components/LoginButton';
+import LogoutButton from './components/LogoutButton';
 
 
 function App() {
@@ -52,6 +53,7 @@ const deleteBlogPost = async(id) => {
         <Link to = '/'>Home</Link>
         <Link to = '/createblog'>Create Blog</Link>
         <LoginButton />
+        <LogoutButton />
         <Routes>
           <Route path = '/'
           element = { 

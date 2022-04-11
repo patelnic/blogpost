@@ -4,6 +4,6 @@ import React from 'react';
 export default function LoginButton() {
   const {loginWithRedirect} = useAuth0();
   return (
-    <button onClick={loginWithRedirect}>Login</button>
+    <button onClick={() => loginWithRedirect({screen_hint:"signup"})}>Login</button>
   )
 }
