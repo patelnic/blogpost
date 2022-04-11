@@ -17,7 +17,7 @@ function App() {
  
   useEffect(() => {
     async function fetchPost() {
-      const data = await fetch("/post");
+      const data = await fetch("/posts");
       const jsonData = await data.json();
       setPost(jsonData);
     }
@@ -40,7 +40,7 @@ const createPost = async (post) => {
 
 const deleteBlogPost = async(id) => {
   console.log("delete", id);
-  await fetch('/post' + id, { method: 'DELETE'});
+  await fetch('/posts' + id, { method: 'DELETE'});
 
   setPost(postsList.filter((post) => post._id == id));
   };
