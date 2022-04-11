@@ -16,7 +16,7 @@ function App() {
  
   useEffect(() => {
     async function fetchPost() {
-      const data = await fetch("http://localhost:4000/");
+      const data = await fetch("/post");
       const jsonData = await data.json();
       console.log("in useEffect ", jsonData);
       setPost(jsonData);
@@ -26,7 +26,7 @@ function App() {
 
 const createPost = async (post) => {
   console.log("Added", post);
-  const data = await fetch("http://localhost:4000/",
+  const data = await fetch("/createblog",
   {
     method: 'POST',
     headers: {"Content-type":"application/json"}, body: JSON.stringify(post),
@@ -40,7 +40,7 @@ const createPost = async (post) => {
 
 const deleteBlogPost = async(id) => {
   console.log("delete", id);
-  await fetch('http://localhost:4000/' + id, { method: 'DELETE'});
+  await fetch('/post' + id, { method: 'DELETE'});
 
   setPost(postsList.filter((post) => post._id == id));
   };
