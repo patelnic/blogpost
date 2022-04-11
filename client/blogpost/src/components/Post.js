@@ -7,8 +7,8 @@ export default function Post({post}) {
     <>
     <li>
         <img className = "blog_post_image" src= {post.images} alt="images" />
-            <Link to = {'/' + post._id}><h2>{post.title}</h2></Link>
-            <p>
+            <Link to = {'/' + post._id}><h2 className = "align-left">{post.title}</h2></Link>
+            <p className = "align-left">
                 {post.description}
             </p>
             <p className="date_form">
