@@ -13,7 +13,6 @@ import PostList from './components/PostsList';
 function App() {
   const appName = 'BlogPost';
   const [postsList, setPost] = useState([]);
-  //const [posts, setNewpost] = useState([]);
  
   useEffect(() => {
     async function fetchPost() {
