@@ -5,7 +5,7 @@ const { dbConnect } = require("../db");
 const router = express.Router();
 const db = require("../db.js");
 
-router.get("/", async function(req, res) {
+router.get("/posts", async function(req, res) {
     try {
         console.log("in get all");
         const cursor = await db.findAllBlogPost();
@@ -16,7 +16,7 @@ router.get("/", async function(req, res) {
     }
 });
 
-router.get("/:id", async function(req, res) {
+router.get("/posts/:id", async function(req, res) {
     try {
         console.log("in find one");
         const id = req.params;
@@ -28,7 +28,7 @@ router.get("/:id", async function(req, res) {
     }
 });
 
-router.post('/', async function (req, res) {
+router.post('/createblog', async function (req, res) {
     try{
         const data = await db.saveBlogPost(req.body);
         res.json(data);

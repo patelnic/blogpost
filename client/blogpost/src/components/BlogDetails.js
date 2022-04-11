@@ -3,19 +3,18 @@ import {useParams} from "react-router-dom";
 import { useEffect } from "react";
 
 export default function BlogDetails() {
-const {postId} = useParams();
+  const {blogId} = useParams();
   const [post, setPost] = useState({})
-  // console.log(postId.blogId);
 
   useEffect(() => {
     async function findPost() {
       console.log("in find post");
-      const data = await fetch("http://localhost:4000/" + postId);
+      const data = await fetch("http://localhost:4000/posts/" + blogId);
       const post = await data.json();
       setPost(post);
     }
     findPost();
-  });
+  }, []);
 
   return (
     <>
