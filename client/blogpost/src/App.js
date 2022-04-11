@@ -11,6 +11,7 @@ import PostList from './components/PostsList';
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
+import ProtectedRoutes from './components/ProtectedRoutes';
 
 
 function App() {
@@ -72,11 +73,7 @@ const deleteBlogPost = async(id) => {
           />
           <Route
               path = '/createblog'
-              element = {
-                <>
-                <h1>Create a Blog</h1>
-                <CreatePost createPost={createPost}/>
-                </>
+              element = {<ProtectedRoutes protectedComponent={CreatePost} />
               }
             />
             <Route 

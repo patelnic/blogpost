@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react" ;
 import {Route, useNavigate} from "react-router-dom";
 import App from "../App";
 import '../App.css';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function CreatePost ({createPost}) {
     const [title, setTitle] = useState(" ");
@@ -57,6 +58,7 @@ export default function CreatePost ({createPost}) {
     };
     return (
     <>
+    <h1>Create a Blog</h1>
     <form onSubmit = {onSubmit}>
         <div className="form-control">
             <label>Title</label>
