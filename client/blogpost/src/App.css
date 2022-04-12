@@ -2,14 +2,13 @@
   text-align: center;
 }
 
-form {
+.create-post-form {
   text-align: center;
   box-sizing: border-box;
   width: 100%;
   border: 2px solid black;
   border-radius: 10px;
   padding: 5px;
-
 }
 
 
@@ -65,12 +64,6 @@ a {
   margin: 10px;
 }
 
-
-img {
-  height: 100%;
-  width: 100%;
-}
-
 .list_container {
   display: table;   /* Allow the centering to work */
 	margin: 0 auto;
@@ -86,8 +79,12 @@ ol {
   display: flex;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
 
-ol li {
+ol li, .post_details {
   position: relative;
   list-style: none;
   padding: 20px;
@@ -102,6 +99,14 @@ ol li img {
   position: absolute;
   top: 0;
   left: 0;
+  width: 22%;
+  align-items: center;
+}
+
+.blog_post_image_details {
+  position: absolute;
+  top: 0px;
+  left: 20px;
   width: 22%;
   align-items: center;
 }
