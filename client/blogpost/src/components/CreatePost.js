@@ -1,6 +1,7 @@
 import React, {useState} from "react" ;
 import {useNavigate} from "react-router-dom";
 import '../App.css';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function CreatePost ({createPost}) {
     const [title, setTitle] = useState();
