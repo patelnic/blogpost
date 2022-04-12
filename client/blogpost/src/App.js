@@ -23,8 +23,8 @@ function App() {
  
   useEffect(() => {
     async function fetchPost() {
-      // const data = await fetch("/posts");
-      const data = await fetch ("http://localhost:4000/posts")
+      const data = await fetch("/posts");
+      // const data = await fetch ("http://localhost:4000/posts")
       const jsonData = await data.json();
       setPost(jsonData);
     }
