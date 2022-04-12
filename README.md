@@ -19,3 +19,11 @@ Our React App is running on ```port 3000``` and server is up and running on ```p
 
 ![Screen Shot 2022-04-06 at 8 15 00 PM](https://user-images.githubusercontent.com/25631469/162114286-89cf5371-b07e-4564-8b56-4b02d3ce75a6.png)
 ![Screen Shot 2022-04-05 at 11 03 37 PM](https://user-images.githubusercontent.com/25631469/161906170-4bd1978c-c56b-4252-b518-14be0aad6246.png)
+
+##Iteration-2
+
+- Added Authentication
+- Completed the Blogs Details Page
+- Performed Update and Delete Operations
+- Added Protected Routes only logged in User can perform Create, Update and Delete
+- Added Bootstrap to Navigation and Buttons
