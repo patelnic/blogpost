@@ -50,5 +50,24 @@ module.exports = {
         } catch (err) {
             console.log(err);
         }
+    },
+    updateBlogPost: async function updateBlogPost(blogPost) {
+        try {
+            const id = {_id:ObjectId(blogPost._id)};
+            const update = {
+                "$set": {
+                  "title": blogPost.title,
+                  "description": blogPost.description,
+                  "date": blogPost.date
+                }
+              };
+            const options = { returnNewDocument: true };
+
+            const data = await client.db(dbName).collection('posts').findOneAndUpdate(id, update, options);
+            console.log("Blog Post update successful")
+            return data;
+        } catch (err) {
+            console.log(err);
+        }
     }
 };
