@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react" ;
 import {useNavigate} from "react-router-dom";
 import '../App.css';
 import {useParams} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export default function UpdatePost ({updatePost}) {
     
@@ -61,20 +63,20 @@ export default function UpdatePost ({updatePost}) {
     return (
     <>
     <h1>Update a Blog</h1>
-    <form className = "create-post-form" onSubmit = {onSubmit}>
-        <div className="form-control">
-            <label>Title</label>
-            <input type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
-        </div>
-        <div className="form-control">
-            <label>Description</label>
-            <textarea type="text" value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
-        </div>
-        <div className="form-control">
-            <label>Image</label>
-            <input type="file" accept="image/*" onChange={onImageChange} />
-        </div>
-        <input type="submit" value="Submit"/>
-    </form>
+    <Form onSubmit = {onSubmit}>
+        <Form.Group className="ms-3">
+            <Form.Label>Title</Form.Label>
+            <Form.Control type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
+        </Form.Group>
+        <Form.Group className="ms-3">
+            <Form.Label>Description</Form.Label>
+            <Form.Control type="text" value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
+        </Form.Group>
+        <Form.Group className="ms-3">
+            <Form.Label>Image</Form.Label>
+            <Form.Control type="file" accept="image/*" onChange={onImageChange}/>
+        </Form.Group>
+        <Button type="submit">Submit</Button>
+    </Form>
     </>
 )}

@@ -131,3 +131,7 @@ ol li img {
   color:rgb(194, 55, 62);
   font-size: x-large;
 }
+
+.ms-auto {
+  align-items: center;
+}

@@ -10,7 +10,8 @@ import PostList from './components/PostsList';
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
-import ProtectedRoutes from './components/ProtectedRoutes';
+import ProtectedRoute from './components/ProtectedRoute';
+import NavigationWithBootstap from './components/NavigationWithBootstap';
 import DeletePost from './components/DeletePost';
 import Header from "./components/Header"
 import UpdatePost from './components/UpdatePost';
@@ -68,9 +69,7 @@ const updatePost = async(post) => {
     <>
       {isLoading? <p>Loading</p>:
       <div className="App">
-        <Link to = '/'>Home</Link>
-        <Link to = '/createblog'>Create Blog</Link>
-        {isAuthenticated?<LogoutButton />:<LoginButton />}
+        <NavigationWithBootstap />
         <Routes>
           <Route path = '/'
           element = { 
@@ -86,7 +85,7 @@ const updatePost = async(post) => {
           />
           <Route
               path = '/createblog'
-              element = {<ProtectedRoutes protectedComponent={CreatePost} />
+              element = {<ProtectedRoute createPost={createPost} protectedComponent={CreatePost}/>
               }
             />
           <Route 
