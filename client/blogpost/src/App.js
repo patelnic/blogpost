@@ -11,7 +11,8 @@ import PostList from './components/PostsList';
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
-import ProtectedRoutes from './components/ProtectedRoutes';
+import ProtectedRoute from './components/ProtectedRoute';
+import NavigationWithBootstap from './components/NavigationWithBootstap';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
  
   useEffect(() => {
     async function fetchPost() {
-      const data = await fetch("/posts");
+      const data = await fetch("http://localhost:4000/posts");
       const jsonData = await data.json();
       setPost(jsonData);
     }
@@ -30,7 +31,7 @@ function App() {
 
 const createPost = async (post) => {
   console.log("Added", post);
-  const data = await fetch("/createblog",
+  const data = await fetch("http://localhost:4000/createblog",
   {
     method: 'POST',
     headers: {"Content-type":"application/json"}, body: JSON.stringify(post),
@@ -54,9 +55,7 @@ const deleteBlogPost = async(id) => {
     <>
       {isLoading? <p>Loading</p>:
       <div className="App">
-        <Link to = '/'>Home</Link>
-        <Link to = '/createblog'>Create Blog</Link>
-        {isAuthenticated?<LogoutButton />:<LoginButton />}
+        <NavigationWithBootstap />
         <Routes>
           <Route path = '/'
           element = { 
@@ -73,7 +72,7 @@ const deleteBlogPost = async(id) => {
           />
           <Route
               path = '/createblog'
-              element = {<ProtectedRoutes protectedComponent={CreatePost} />
+              element = {<ProtectedRoute createPost={createPost} protectedComponent={CreatePost}/>
               }
             />
             <Route 

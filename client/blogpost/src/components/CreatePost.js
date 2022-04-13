@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react" ;
 import {Route, useNavigate} from "react-router-dom";
-import App from "../App";
 import '../App.css';
-import { useAuth0 } from "@auth0/auth0-react";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function CreatePost ({createPost}) {
     const [title, setTitle] = useState(" ");
@@ -59,20 +60,20 @@ export default function CreatePost ({createPost}) {
     return (
     <>
     <h1>Create a Blog</h1>
-    <form onSubmit = {onSubmit}>
-        <div className="form-control">
-            <label>Title</label>
-            <input type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
-        </div>
-        <div className="form-control">
-            <label>Description</label>
-            <textarea type="text" value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
-        </div>
-        <div className="form-control">
-            <label>Image</label>
-            <input type="file" accept="image/*" onChange={onImageChange} required/>
-        </div>
-        <input type="submit" value="Submit"/>
-    </form>
+    <Form onSubmit = {onSubmit}>
+        <Form.Group className="ms-3">
+            <Form.Label>Title</Form.Label>
+            <Form.Control type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
+        </Form.Group>
+        <Form.Group className="ms-3">
+            <Form.Label>Description</Form.Label>
+            <Form.Control type="text" value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
+        </Form.Group>
+        <Form.Group className="ms-3">
+            <Form.Label>Image</Form.Label>
+            <Form.Control type="file" accept="image/*" onChange={onImageChange} required/>
+        </Form.Group>
+        <Button type="submit">Submit</Button>
+    </Form>
     </>
 )}
