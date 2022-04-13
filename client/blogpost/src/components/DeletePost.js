@@ -12,7 +12,7 @@ export default function DeletePost({deleteBlogPost}) {
 
   useEffect(() => {
     async function findPost() {
-    //   const data = await fetch("http://localhost:4000/posts/" + blogId);
+    //const data = await fetch("http://localhost:4000/posts/" + blogId);
     const data = await fetch("/posts/" + blogId);
 
     const post = await data.json();
@@ -34,14 +34,14 @@ export default function DeletePost({deleteBlogPost}) {
         <p className = "align-left">
             {post.description}
         </p>
-        <p className="date_form">
-            {post.date}
-        </p>
         <div><p>Confirm deletion?</p></div>
 
         <form onSubmit = {onSubmit}>
             <input type="submit" value="Submit"/>
         </form>
+        <p className="date_form">
+            {post.date}
+        </p>
       </div>
     </>
   )

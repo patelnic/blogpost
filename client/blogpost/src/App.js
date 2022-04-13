@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     async function fetchPost() {
       const data = await fetch("/posts");
-      // const data = await fetch ("http://localhost:4000/posts")
+      //const data = await fetch ("http://localhost:4000/posts")
       const jsonData = await data.json();
       setPost(jsonData);
     }
@@ -34,7 +34,7 @@ function App() {
 
 const createPost = async (post) => {
   console.log("Added", post);
-  // const data = await fetch("http://localhost:4000/createblog",
+  //const data = await fetch("http://localhost:4000/createblog",
   const data = await fetch("/createblog",
   {
     method: 'POST',
@@ -49,7 +49,7 @@ const createPost = async (post) => {
 
 const deleteBlogPost = async(id) => {
   console.log("delete", id);
-  // await fetch('http://localhost:4000/posts/' + id, { method: 'DELETE'});
+  //await fetch('http://localhost:4000/posts/' + id, { method: 'DELETE'});
   await fetch('/posts/' + id, { method: 'DELETE'});
 
   setPost(postsList.filter((post) => post._id == id));
@@ -57,8 +57,8 @@ const deleteBlogPost = async(id) => {
 
 const updatePost = async(post) => {
   console.log("Added", post);
-  // await fetch('http://localhost:4000/posts/' + post._id + "/update", {
-    await fetch('/posts/' + post._id + "/update", {
+  //await fetch('http://localhost:4000/posts/' + post._id + "/update", {
+  await fetch('/posts/' + post._id + "/update", {
     method: 'POST',
     headers: {"Content-type":"application/json"}, body: JSON.stringify(post),
   });
