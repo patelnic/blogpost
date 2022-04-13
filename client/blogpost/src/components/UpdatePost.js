@@ -1,36 +1,42 @@
-import React, {useState} from "react" ;
-import {Route, useNavigate} from "react-router-dom";
+import React, {useState, useEffect} from "react" ;
+import {useNavigate} from "react-router-dom";
 import '../App.css';
-import Form from 'react-bootstrap/Form';
+import {useParams} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import ProtectedRoute from "./ProtectedRoute";
+import Form from 'react-bootstrap/Form';
 
-export default function CreatePost ({createPost}) {
-    const [title, setTitle] = useState();
-    const [description, setDescription] = useState(" ");
-    const [images, setImages] = useState([]);
+export default function UpdatePost ({updatePost}) {
+    
     //const [imageURLs, setImageURLs] = useState([]);
+    const {blogId} = useParams();
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        async function findPost() {
+        // const data = await fetch("http://localhost:4000/posts/" + blogId);
+        const data = await fetch("/posts/" + blogId);
+        const post = await data.json();
+        setId(post._id)
+        setTitle(post.title);
+        setDescription(post.description);
+        setImages(post.images);
+        }
+        findPost();
+    }, []);
+
+    const [title, setTitle] = useState(' ');
+    const [description, setDescription] = useState('');
+    const [images, setImages] = useState([]);
+    const [_id, setId] = useState('');
+
     const options = { 
         month: 'long', 
         day: '2-digit',
         year: 'numeric', 
       };
     const date =  new Date().toLocaleDateString('en-US', options);
- 
-    const navigate = useNavigate();
-    /*
-    useEffect(() => {
-        if(images.length < 1) return;
-        const newImageURLs = [];
-        images.forEach(image => newImageURLs.push(URL.createObjectURL(image)));
-        console.log(newImageURLs);
-        setImageURLs(newImageURLs);
-    }, [images]
-    );
-    function onImageChange(e) {
-        setImages([...e.target.files]);
-    }*/
-        
+         
     function onImageChange(e) {
         const reader = new FileReader();
       
@@ -51,15 +57,12 @@ export default function CreatePost ({createPost}) {
             alert("Enter all the details!");
             return;
         }
-        createPost({title, description, images, date})
-        setTitle('');
-        setDescription('');
-        setImages('');
+        updatePost({_id, title, description, images, date})
         navigate('/');
     };
     return (
     <>
-    <h1>Create a Blog</h1>
+    <h1>Update a Blog</h1>
     <Form onSubmit = {onSubmit}>
         <Form.Group className="ms-3">
             <Form.Label>Title</Form.Label>
@@ -71,7 +74,7 @@ export default function CreatePost ({createPost}) {
         </Form.Group>
         <Form.Group className="ms-3">
             <Form.Label>Image</Form.Label>
-            <Form.Control type="file" accept="image/*" onChange={onImageChange} required/>
+            <Form.Control type="file" accept="image/*" onChange={onImageChange}/>
         </Form.Group>
         <Button type="submit">Submit</Button>
     </Form>

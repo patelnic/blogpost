@@ -1,20 +1,30 @@
 import React, { useState } from 'react'
 import {useParams} from "react-router-dom";
 import { useEffect } from "react";
-import {Link} from 'react-router-dom';
-export default function BlogDetails() {
+import {useNavigate} from "react-router-dom";
+
+
+export default function DeletePost({deleteBlogPost}) {
   const {blogId} = useParams();
   const [post, setPost] = useState({})
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     async function findPost() {
-      // const data = await fetch("http://localhost:4000/posts/" + blogId);
-      const data = await fetch("/posts/" + blogId);
-      const post = await data.json();
-      setPost(post);
+    //   const data = await fetch("http://localhost:4000/posts/" + blogId);
+    const data = await fetch("/posts/" + blogId);
+
+    const post = await data.json();
+    setPost(post);
     }
     findPost();
   }, []);
+
+  const onSubmit = () => {
+    deleteBlogPost(post._id);
+    navigate('/');
+  };
 
   return (
     <>
@@ -27,8 +37,11 @@ export default function BlogDetails() {
         <p className="date_form">
             {post.date}
         </p>
-        <p> <Link to = {'/' + post._id + '/update'}>Update</Link></p>
-        <p> <Link to = {'/' + post._id + '/delete'}>Delete</Link></p>
+        <div><p>Confirm deletion?</p></div>
+
+        <form onSubmit = {onSubmit}>
+            <input type="submit" value="Submit"/>
+        </form>
       </div>
     </>
   )

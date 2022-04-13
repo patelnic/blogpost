@@ -49,4 +49,13 @@ router.delete("/posts/:id", async function(req, res) {
     }
 })
 
+router.post("/posts/:id/update", async function(req, res) {
+    try {
+        const data = await db.updateBlogPost(req.body)
+        res.json(data);
+    } catch(err) {
+        console.log(err)
+    }
+})
+
 module.exports.router = router;
