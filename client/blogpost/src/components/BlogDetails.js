@@ -8,7 +8,7 @@ export default function BlogDetails() {
 
   useEffect(() => {
     async function findPost() {
-      // const data = await fetch("http://localhost:4000/posts/" + blogId);
+      //const data = await fetch("http://localhost:4000/posts/" + blogId);
       const data = await fetch("/posts/" + blogId);
       const post = await data.json();
       setPost(post);
@@ -24,11 +24,11 @@ export default function BlogDetails() {
         <p className = "align-left">
             {post.description}
         </p>
+        <p> <Link to = {'/' + post._id + '/update'}>Update</Link></p>
+        <p> <Link to = {'/' + post._id + '/delete'}>Delete</Link></p>
         <p className="date_form">
             {post.date}
         </p>
-        <p> <Link to = {'/' + post._id + '/update'}>Update</Link></p>
-        <p> <Link to = {'/' + post._id + '/delete'}>Delete</Link></p>
       </div>
     </>
   )
