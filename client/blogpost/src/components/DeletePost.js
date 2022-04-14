@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import {useParams} from "react-router-dom";
 import { useEffect } from "react";
 import {useNavigate} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 export default function DeletePost({deleteBlogPost}) {
@@ -34,11 +36,11 @@ export default function DeletePost({deleteBlogPost}) {
         <p className = "align-left">
             {post.description}
         </p>
-        <div><p>Confirm deletion?</p></div>
+        <div><p>Confirm Deletion?</p></div>
 
-        <form onSubmit = {onSubmit}>
-            <input type="submit" value="Submit"/>
-        </form>
+        <Form onSubmit = {onSubmit}>
+            <Button type="submit">Submit</Button>
+        </Form>
         <p className="date_form">
             {post.date}
         </p>
