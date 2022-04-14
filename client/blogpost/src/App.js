@@ -49,7 +49,7 @@ const createPost = async (post) => {
 
 const deleteBlogPost = async(id) => {
   console.log("delete", id);
-  //await fetch('http://localhost:4000/posts/' + id, { method: 'DELETE'});
+  // fetch('http://localhost:4000/posts/' + id, { method: 'DELETE'});
   await fetch('/posts/' + id, { method: 'DELETE'});
 
   setPost(postsList.filter((post) => post._id == id));
