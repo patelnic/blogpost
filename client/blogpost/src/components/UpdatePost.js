@@ -14,7 +14,7 @@ export default function UpdatePost ({updatePost}) {
 
     useEffect(() => {
         async function findPost() {
-        //const data = await fetch("http://localhost:4000/posts/" + blogId);
+        // const data = await fetch("http://localhost:4000/posts/" + blogId);
         const data = await fetch("/posts/" + blogId);
         const post = await data.json();
         setId(post._id)
