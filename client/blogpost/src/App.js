@@ -15,26 +15,28 @@ import NavigationWithBootstap from './components/NavigationWithBootstap';
 import DeletePost from './components/DeletePost';
 import Header from "./components/Header"
 import UpdatePost from './components/UpdatePost';
-
+import SearchBox from './components/SearchBox';
 
 function App() {
   const appName = 'BlogPost';
   const [postsList, setPost] = useState([]);
+  const [searchField, setSearchField] = useState('')
   const {isAuthenticated, isLoading} = useAuth0();
- 
+
   useEffect(() => {
     async function fetchPost() {
       const data = await fetch("/posts");
-      //const data = await fetch ("http://localhost:4000/posts")
+      // const data = await fetch ("http://localhost:4000/posts")
       const jsonData = await data.json();
-      setPost(jsonData);
+      console.log(searchField)
+      setPost(jsonData)
     }
     fetchPost();
-  }, [postsList.length])
+  }, [])
 
 const createPost = async (post) => {
   console.log("Added", post);
-  //const data = await fetch("http://localhost:4000/createblog",
+  // const data = await fetch("http://localhost:4000/createblog",
   const data = await fetch("/createblog",
   {
     method: 'POST',
@@ -48,7 +50,7 @@ const createPost = async (post) => {
 }
 
 const deleteBlogPost = async(id) => {
-  console.log("delete", id);
+  // console.log("delete", id);
   // fetch('http://localhost:4000/posts/' + id, { method: 'DELETE'});
   await fetch('/posts/' + id, { method: 'DELETE'});
 
@@ -56,20 +58,32 @@ const deleteBlogPost = async(id) => {
 };
 
 const updatePost = async(post) => {
-  console.log("Added", post);
-  //await fetch('http://localhost:4000/posts/' + post._id + "/update", {
+  // console.log("Added", post);
+  // await fetch('http://localhost:4000/posts/' + post._id + "/update", {
   await fetch('/posts/' + post._id + "/update", {
     method: 'POST',
     headers: {"Content-type":"application/json"}, body: JSON.stringify(post),
   });
 };
 
+const updatePostList = async(value) => {
+  // const data = await fetch ("http://localhost:4000/posts")
+  const data = await fetch("/posts");
+  const jsonData = await data.json();
+  setPost(jsonData.filter((post) => (
+    post.title.toLowerCase().includes(value.toLocaleLowerCase())
+  )))
+}
 
+  
   return (
     <>
       {isLoading? <p>Loading</p>:
       <div className="App">
-        <NavigationWithBootstap />
+        <NavigationWithBootstap handleChange={(e) => 
+            updatePostList(e.target.value)
+        }
+        />
         <Routes>
           <Route path = '/'
           element = { 
@@ -113,7 +127,7 @@ const updatePost = async(post) => {
             }
           />
         </Routes>
-      </div>
+              </div>
     }
     </>
   );

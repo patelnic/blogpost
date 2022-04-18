@@ -3,12 +3,15 @@ import {Route, useNavigate} from "react-router-dom";
 import '../App.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import ProtectedRoute from "./ProtectedRoute";
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function CreatePost ({createPost}) {
     const [title, setTitle] = useState();
     const [description, setDescription] = useState(" ");
     const [images, setImages] = useState([]);
+
+    const { user } = useAuth0();
+    const { name, picture, email } = user;
     //const [imageURLs, setImageURLs] = useState([]);
     const options = { 
         month: 'long', 
@@ -51,7 +54,7 @@ export default function CreatePost ({createPost}) {
             alert("Enter all the details!");
             return;
         }
-        createPost({title, description, images, date})
+        createPost({title, description, images, date, email})
         setTitle('');
         setDescription('');
         setImages('');
