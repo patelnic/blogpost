@@ -23,7 +23,7 @@ app.set("view engine", "pug");
 const posts = require("./routes/posts.js");
 app.use("/", posts.router);
 
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
 mydb.dbConnect().then (() => app.listen(port, () => {
     console.log("App is running on port " + port);
