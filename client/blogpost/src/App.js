@@ -15,6 +15,7 @@ import NavigationWithBootstap from './components/NavigationWithBootstap';
 import DeletePost from './components/DeletePost';
 import Header from "./components/Header"
 import UpdatePost from './components/UpdatePost';
+import Profile from './components/Profile';
 
 
 function App() {
@@ -71,6 +72,8 @@ const updatePost = async(post) => {
       <div className="App">
         <NavigationWithBootstap />
         <Routes>
+          <Route path='/profile' element={<ProtectedRoute protectedComponent={Profile} />}/>
+          <Route path="*" element={<p>Sorry, nothing to show here!</p>}/>
           <Route path = '/'
           element = { 
           <>
