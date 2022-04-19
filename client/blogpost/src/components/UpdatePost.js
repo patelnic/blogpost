@@ -70,7 +70,7 @@ export default function UpdatePost ({updatePost}) {
         </Form.Group>
         <Form.Group className="ms-3">
             <Form.Label>Description</Form.Label>
-            <Form.Control type="text" value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
+            <Form.Control as="textarea" rows={3} value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
         </Form.Group>
         <Form.Group className="ms-3">
             <Form.Label>Image</Form.Label>
