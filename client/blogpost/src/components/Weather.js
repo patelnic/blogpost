@@ -17,7 +17,7 @@ const Weather = () => {
             method: 'GET',
             headers: {
                 'X-RapidAPI-Host': 'community-open-weather-map.p.rapidapi.com',
-                'X-RapidAPI-Key': '96264a6fd7mshd8ca4a572947e54p1b7a3ejsnbac963ccb40a'
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY
             }
         };
         
@@ -40,7 +40,7 @@ const Weather = () => {
                     onChange={(e) => setCity(e.target.value)}
                     />
                 <Form.Label>
-                    <Form.Control
+                    <Form.Check
                         type="radio"
                         name="units"
                         checked={unit === "imperial"}
@@ -50,7 +50,7 @@ const Weather = () => {
                     Fahrenheit
                 </Form.Label>
                 <Form.Label>
-                    <Form.Control
+                    <Form.Check
                         type="radio"
                         name="units"
                         checked={unit === "metric"}

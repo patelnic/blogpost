@@ -9,12 +9,14 @@ import { Link } from 'react-router-dom';
 import logo from '../logo.svg';
 import '../App.css'
 import SearchBox from './SearchBox';
+import Weather from './Weather';
 
 export default function NavigationWithBootstap({handleChange}) {
   const {isAuthenticated} = useAuth0();
   return (
     <Navbar collapseOnSelect expand="sm" bg="light" variant="light">
         <Container>
+          <Weather />
         <Navbar.Collapse>
         <Nav className="ms-auto">
             <Nav.Item><SearchBox hint = 'Search all blogs' handleChange = {handleChange}/></Nav.Item>
