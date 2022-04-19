@@ -17,7 +17,7 @@ export default function NavigationWithBootstap({handleChange}) {
         <Container>
         <Navbar.Collapse>
         <Nav className="ms-auto">
-            <Nav.Item><SearchBox hint = 'Search all blogs' handleChange = {handleChange}/> </Nav.Item>
+            <Nav.Item><SearchBox hint = 'Search all blogs' handleChange = {handleChange}/></Nav.Item>
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/createblog">Create Blog</Nav.Link>
             <Nav.Link as={Link} to="/profile">Profile</Nav.Link>            

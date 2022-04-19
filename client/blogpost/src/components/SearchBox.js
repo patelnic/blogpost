@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
 
 export default function SearchBox (props) {
 
     return (
         <>
-        <input type = 'search'
+        <Form.Control type = 'search'
             className='searchBox'
             placeholder={props.hint}
             onChange={props.handleChange}

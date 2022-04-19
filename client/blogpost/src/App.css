@@ -135,3 +135,8 @@ ol li img {
 .ms-auto {
   align-items: center;
 }
+
+.profile_img {
+  height: 100px;
+  width: 100px;
+}
