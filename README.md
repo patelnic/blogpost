@@ -40,7 +40,7 @@ Our React App is running on ```port 3000``` and server is up and running on ```p
 - Added profile of the user to the profiles tab
 - Perform search on blogs
 
-<img width="1512" alt="Screen Shot 2022-04-19 at 3 03 56 PM" src="https://user-images.githubusercontent.com/25631469/164109561-4d52a4c6-6ac1-4bab-a21b-3220a54be6bd.png">
-<img width="1512" alt="Screen Shot 2022-04-19 at 3 04 51 PM" src="https://user-images.githubusercontent.com/25631469/164109585-b96c6f33-cb2b-4760-8183-79600da3c86d.png">
-<img width="1512" alt="Screen Shot 2022-04-19 at 3 05 36 PM" src="https://user-images.githubusercontent.com/25631469/164109601-0dd3eb63-67f9-4aa5-9702-b2eb95fd1603.png">
-<img width="1458" alt="Screen Shot 2022-04-19 at 3 05 04 PM" src="https://user-images.githubusercontent.com/25631469/164109622-97c9a1df-878b-4b01-9fa6-fe057de99a72.png">
+<img width="1512" alt="Screen Shot 2022-04-19 at 3 03 56 PM" src="https://user-images.githubusercontent.com/25631469/164109947-0a9f2050-c25d-4359-a3a3-9e2e96902be2.png">
+<img width="1512" alt="Screen Shot 2022-04-19 at 3 04 51 PM" src="https://user-images.githubusercontent.com/25631469/164109964-4ef835ba-b819-457a-9681-c34c13b392f7.png">
+<img width="1512" alt="Screen Shot 2022-04-19 at 3 05 36 PM" src="https://user-images.githubusercontent.com/25631469/164109970-ef5cc578-c42f-4df5-8de3-b7bb301fd122.png">
+<img width="1458" alt="Screen Shot 2022-04-19 at 3 05 04 PM" src="https://user-images.githubusercontent.com/25631469/164109975-dc18537b-19ef-4768-b19a-be9684372460.png">
