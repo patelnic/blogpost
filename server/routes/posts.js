@@ -7,7 +7,6 @@ const db = require("../db.js");
 
 router.get("/posts", async function(req, res) {
     try {
-        console.log("in get all post");
         const cursor = await db.findAllBlogPost();
         const data = await cursor.toArray();
         res.json(data);
@@ -57,10 +56,24 @@ router.delete("/posts/:id", async function(req, res) {
     }
 })
 
+router.post("/search/:value", async function(req,res) {
+    const value = req.params.value
+    console.log("Search = " + req.params.value);
+    try {
+        const data = await db.findSearch(value);
+        if (data == null) {
+            const insertSearch = await db.insertSearch(value)
+        } else {
+            await db.updateSearch(value);
+        }
+    } catch (err) {
+
+    }
+})
+
 router.get("/users/:user", async function(req, res) {
     try {
         const userEmail = req.params.user
-        console.log(userEmail);
         const data = await db.findUser(userEmail);
         res.json(data);
     } catch (err) {

@@ -45,8 +45,6 @@ function App() {
 
             const newUser = await data.json();
             console.log("New User saved" + newUser);
-        } else {
-          console.log("user already exists.")
         }
 
       } findUser();
@@ -85,16 +83,25 @@ const updatePost = async(post) => {
   });
 };
 
-const updatePostList = async(value) => {
+const updatePostList = async(searchChars) => {
   // const data = await fetch ("http://localhost:4000/posts")
   const data = await fetch("/posts");
   const jsonData = await data.json();
   setPost(jsonData.filter((post) => (
-    post.title.toLowerCase().includes(value.toLocaleLowerCase())
+    post.title.toLowerCase().includes(searchChars.toLocaleLowerCase())
   )))
+
+  // const searchData = await fetch('http://localhost:4000/search/' + searchChars.toLocaleLowerCase(), {
+    const searchData = await fetch('/search/' + searchChars.toLocaleLowerCase(), {
+
+    mode: 'no-cors',
+    method: 'POST',
+    headers: {"Content-type":"application/json"}, 
+    body: JSON.stringify(searchChars.toLocaleLowerCase()),
+  });
+
 }
 
-  
   return (
     <>
       {isLoading? <p>Loading</p>:
@@ -148,7 +155,7 @@ const updatePostList = async(value) => {
             }
           />
         </Routes>
-              </div>
+      </div>
     }
     </>
   );
