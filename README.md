@@ -25,9 +25,22 @@ Our React App is running on ```port 3000``` and server is up and running on ```p
 - Added Authentication
 - Completed the Blogs Details Page
 - Performed Update and Delete Operations
-- Added Protected Routes only logged in User can perform Create, Update and Delete
+- Added Protected Routes only logged in User can perform Create
 - Added Bootstrap to Navigation and Buttons
 
 ![Screen Shot 2022-04-12 at 12 17 28 AM](https://user-images.githubusercontent.com/25631469/162903031-ce8cddec-825c-48fd-ae4f-180b66049210.png)
 ![Screen Shot 2022-04-12 at 12 14 22 AM](https://user-images.githubusercontent.com/25631469/162903065-047cce43-8ba6-4ef2-b882-acf3efdd6d5a.png)
 ![Screen Shot 2022-04-13 at 3 42 49 PM](https://user-images.githubusercontent.com/25631469/163282815-11665a1e-2da3-4193-ae79-206480b2049f.png)
+
+## Iteration-3
+
+- Added Weather API(Open Weather Map) to the website to display the weather condition of the entered location
+- Created User and Search collection
+- Added the code to restrict users from editing and deleting any blogs meaning they can only edit and delete the blogs created by them.
+- Added profile of the user to the profiles tab
+- Perform search on blogs
+
+<img width="1512" alt="Screen Shot 2022-04-19 at 3 03 56 PM" src="https://user-images.githubusercontent.com/25631469/164109561-4d52a4c6-6ac1-4bab-a21b-3220a54be6bd.png">
+<img width="1512" alt="Screen Shot 2022-04-19 at 3 04 51 PM" src="https://user-images.githubusercontent.com/25631469/164109585-b96c6f33-cb2b-4760-8183-79600da3c86d.png">
+<img width="1512" alt="Screen Shot 2022-04-19 at 3 05 36 PM" src="https://user-images.githubusercontent.com/25631469/164109601-0dd3eb63-67f9-4aa5-9702-b2eb95fd1603.png">
+<img width="1458" alt="Screen Shot 2022-04-19 at 3 05 04 PM" src="https://user-images.githubusercontent.com/25631469/164109622-97c9a1df-878b-4b01-9fa6-fe057de99a72.png">
