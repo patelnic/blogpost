@@ -26,6 +26,14 @@ module.exports = {
             console.log(err);
         }
     },
+    saveUser: async function saveUser(user) {
+        try {
+            const data = await client.db(dbName).collection('users').insertOne(user);
+            return data;
+        } catch (err) {
+            console.log(err)
+        }
+    },
     findAllBlogPost: async function findAllBlogPost() {
         try {
             const data = await client.db(dbName).collection('posts').find();
@@ -65,6 +73,15 @@ module.exports = {
 
             const data = await client.db(dbName).collection('posts').findOneAndUpdate(id, update, options);
             console.log("Blog Post update successful")
+            return data;
+        } catch (err) {
+            console.log(err);
+        }
+    },
+    findUser: async function findUser(userEmail) {
+        try {
+            console.log(userEmail)
+            const data = await client.db(dbName).collection('users').findOne({email: userEmail});
             return data;
         } catch (err) {
             console.log(err);

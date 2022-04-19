@@ -8,7 +8,6 @@ export default function BlogDetails() {
   const {blogId} = useParams();
   const [post, setPost] = useState({})
   const { user } = useAuth0();
-  const { name, picture, email } = user;
 
   useEffect(() => {
     async function findPost() {
@@ -28,12 +27,12 @@ export default function BlogDetails() {
         <p className = "align-left">
             {post.description}
         </p>
-        {post.email == email &&
-        <>
-        <p> <Link to = {'/' + post._id + '/update'}>Update</Link></p>
-        <p> <Link to = {'/' + post._id + '/delete'}>Delete</Link></p>
-        </>
-        }
+          {user !== undefined && (post.email == user.email &&
+          <>
+          <p className = "align-left"> <Link to = {'/' + post._id + '/update'}>Update</Link></p>
+          <p className = "align-left"> <Link to = {'/' + post._id + '/delete'}>Delete</Link></p>
+          </>)
+          }
         <p className="date_form">
             {post.date}
         </p>

@@ -38,14 +38,33 @@ router.post('/createblog', async function (req, res) {
     }
 });
 
+router.post('/users', async function (req, res) {
+    try {
+        const data = await db.saveUser(req.body);
+        res.json(data);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
 router.delete("/posts/:id", async function(req, res) {
     try {
         const id = req.params.id;
-        console.log(id);
         const data = await db.deleteBlogPost(id)
         res.json(data);
     } catch(err) {
         console.log(err)
+    }
+})
+
+router.get("/users/:user", async function(req, res) {
+    try {
+        const userEmail = req.params.user
+        console.log(userEmail);
+        const data = await db.findUser(userEmail);
+        res.json(data);
+    } catch (err) {
+        console.log(err);
     }
 })
 

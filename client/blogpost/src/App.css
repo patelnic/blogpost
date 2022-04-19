@@ -140,3 +140,13 @@ ol li img {
   height: 100px;
   width: 100px;
 }
+
+.post_details  a {
+  text-decoration: none;
+  color: blue;
+}
+
+.post_details  a:hover {
+  text-decoration: none;
+  color: purple;
+}
