@@ -59,6 +59,30 @@ module.exports = {
             console.log(err);
         }
     },
+    findSearch: async function findSearch(value) {
+        try {
+            const data = await client.db(dbName).collection('search').findOne({value : value});
+            return data;
+        } catch (err) {
+            console.log(err);
+        }
+    },
+    insertSearch: async function insertSearch(value) {
+        try {
+            const data = await client.db(dbName).collection('search').insertOne({"value": value, "count": 1})
+            return data;
+        } catch(err) {
+            console.log(err)
+        }
+    },
+    updateSearch: async function updateSearch(value) {
+        try {
+            const data = await client.db(dbName).collection('search').findOneAndUpdate({"value": value}, {$inc: {count: 1}});
+            return data;
+        } catch(err) {
+            console.log(err)
+        }
+    },
     updateBlogPost: async function updateBlogPost(blogPost) {
         try {
             const id = {_id:ObjectId(blogPost._id)};
