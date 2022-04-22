@@ -14,8 +14,8 @@ export default function UpdatePost ({updatePost}) {
 
     useEffect(() => {
         async function findPost() {
-        // const data = await fetch("http://localhost:4000/posts/" + blogId);
-        const data = await fetch("/posts/" + blogId);
+        const data = await fetch("http://localhost:4000/posts/" + blogId);
+        //const data = await fetch("/posts/" + blogId);
         const post = await data.json();
         setId(post._id)
         setTitle(post.title);
@@ -62,8 +62,8 @@ export default function UpdatePost ({updatePost}) {
     };
     return (
     <>
-    <h1>Update a Blog</h1>
-    <Form onSubmit = {onSubmit}>
+    <h2 className="createblog">Update a Blog</h2>
+    <Form className="formsize" onSubmit = {onSubmit}>
         <Form.Group className="ms-3">
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>

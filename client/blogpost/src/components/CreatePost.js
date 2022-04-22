@@ -62,8 +62,8 @@ export default function CreatePost ({createPost}) {
     };
     return (
     <>
-    <h1>Create a Blog</h1>
-    <Form onSubmit = {onSubmit}>
+    <h2 className="createblog">Create a Blog</h2>
+    <Form className="formsize" onSubmit = {onSubmit}>
         <Form.Group className="ms-3">
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
