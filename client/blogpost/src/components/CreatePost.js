@@ -62,19 +62,19 @@ export default function CreatePost ({createPost}) {
     };
     return (
     <>
-    <h1>Create a Blog</h1>
-    <Form onSubmit = {onSubmit}>
+    <h2 className="createblog">Create a Blog</h2>
+    <Form className="formsize" onSubmit = {onSubmit}>
         <Form.Group className="ms-3">
             <Form.Label>Title</Form.Label>
-            <Form.Control type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
+            <Form.Control type="text" placeholder="Enter title" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
         </Form.Group>
         <Form.Group className="ms-3">
             <Form.Label>Description</Form.Label>
-            <Form.Control as="textarea" rows={3} value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
+            <Form.Control as="textarea" placeholder="Enter description" rows={3} value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
         </Form.Group>
         <Form.Group className="ms-3">
             <Form.Label>Image</Form.Label>
-            <Form.Control type="file" accept="image/*" onChange={onImageChange} required/>
+            <Form.Control type="file" placeholder="Choose image" accept="image/*" onChange={onImageChange} required/>
         </Form.Group>
         <Button type="submit">Submit</Button>
     </Form>
