@@ -6,7 +6,7 @@ export default function Profile() {
 
   return (
       <div>
-        <img className='profile_img' src={user.picture} />
+        <img className='profile_img' alt="Profile Picture" src={user.picture} />
         <h1>{user.nickname}</h1>
         <p><b>Id:</b> {user.sub}</p>
         <p><b>Email:</b> {user.email}</p>
