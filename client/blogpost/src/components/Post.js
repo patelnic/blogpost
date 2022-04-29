@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 export default function Post({post, deleteBlogPost}) {
   let text = post.description;
-  if (text.length > 250) {
+  if (text != null && text.length > 250) {
     text = text.slice(0, 250) + '...'
   }
 
