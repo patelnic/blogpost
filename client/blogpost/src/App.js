@@ -110,6 +110,7 @@ const updatePostList = async(searchChars) => {
             updatePostList(e.target.value)
         }
         />
+        
         <Routes>
           <Route path='/profile' element={<ProtectedRoute protectedComponent={Profile} />}/>
           <Route path="*" element={<p>Sorry, nothing to show here!</p>}/>

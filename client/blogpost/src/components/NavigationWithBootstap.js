@@ -10,15 +10,19 @@ import logo from '../logo.svg';
 import '../App.css'
 import SearchBox from './SearchBox';
 import Weather from './Weather';
+import { useState, useEffect } from 'react';
 
 export default function NavigationWithBootstap({handleChange}) {
   const {isAuthenticated} = useAuth0();
+
   return (
-    <Navbar collapseOnSelect expand="sm" bg="light" variant="light">
+    <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
+          <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Weather />
-        <Navbar.Collapse>
+        <Navbar.Collapse id='responsive-navbar-nav'>
         <Nav className="ms-auto">
+          
             <Nav.Item><SearchBox hint = 'Search all blogs' handleChange = {handleChange}/></Nav.Item>
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/createblog">Create Blog</Nav.Link>
