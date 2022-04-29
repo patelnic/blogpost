@@ -88,7 +88,7 @@ ol li, .post_details {
   position: relative;
   list-style: none;
   padding: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(2, 2, 2);
   display: block;
   background-color: blanchedalmond;
   margin-bottom: 20px;
@@ -114,7 +114,7 @@ ol li img {
 
 .date_form {
   text-align: right;
-  color: rgb(167, 161, 161);
+  color: rgb(77, 71, 71);
 }
 
 .align-left {
@@ -127,9 +127,10 @@ ol li img {
 
 .header {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-style: italic;
-  color:rgb(194, 55, 62);
+  font-style: bold;
+  color:rgb(209, 64, 76);
   font-size: x-large;
+  letter-spacing: 30px;
 }
 
 .ms-auto {
@@ -149,4 +150,16 @@ ol li img {
 .post_details  a:hover {
   text-decoration: none;
   color: purple;
+}
+
+.createblog {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 3px;
+  font-style: bold;
+  font-size: x-large;
+}
+
+.formsize {
+  width: 500px;
+  margin: 0 auto;
 }
