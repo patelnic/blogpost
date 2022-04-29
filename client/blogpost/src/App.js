@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useEffect } from "react";
 import PostsList from "./components/PostsList"
 import { Routes, Route} from 'react-router-dom';
@@ -12,6 +12,7 @@ import DeletePost from './components/DeletePost';
 import Header from "./components/Header"
 import UpdatePost from './components/UpdatePost';
 import Profile from './components/Profile';
+import debounce from 'lodash/debounce';
 
 
 function App() {
@@ -84,30 +85,38 @@ const updatePost = async(post) => {
 };
 
 const updatePostList = async(searchChars) => {
+  console.log(searchChars)
   const data = await fetch ("http://localhost:4000/posts")
   //const data = await fetch("/posts");
   const jsonData = await data.json();
-  setPost(jsonData.filter((post) => (
-    post.title.toLowerCase().includes(searchChars.toLocaleLowerCase())
-  )))
+  if(searchChars.length > 0) {
+    setPost(jsonData.filter((post) => (
+      post.title.toLowerCase().includes(searchChars.toLocaleLowerCase())
+    )))
 
-  const searchData = await fetch('http://localhost:4000/search/' + searchChars.toLocaleLowerCase(), {
-    //const searchData = await fetch('/search/' + searchChars.toLocaleLowerCase(), {
+    const searchData = await fetch('http://localhost:4000/search/' + searchChars.toLocaleLowerCase(), {
+      //const searchData = await fetch('/search/' + searchChars.toLocaleLowerCase(), {
 
-    mode: 'no-cors',
-    method: 'POST',
-    headers: {"Content-type":"application/json"}, 
-    body: JSON.stringify(searchChars.toLocaleLowerCase()),
-  });
+      mode: 'no-cors',
+      method: 'POST',
+      headers: {"Content-type":"application/json"}, 
+      body: JSON.stringify(searchChars.toLocaleLowerCase()),
+    });
+  } else {
+    setPost(jsonData)
+  }
 
 }
+
+const debouncedOnChange = useMemo(() => debounce(updatePostList, 300), []);
+
 
   return (
     <>
       {isLoading? <p>Loading</p>:
       <div className="App">
         <NavigationWithBootstap handleChange={(e) => 
-            updatePostList(e.target.value)
+            debouncedOnChange(e.target.value)
         }
         />
         
@@ -119,9 +128,7 @@ const updatePostList = async(searchChars) => {
           <>
             <Header appName = {appName}/>
               <div className = "list_container">
-                <ol>
                   <PostsList deleteBlogPost = {deleteBlogPost} postsList = {postsList}/>
-                </ol>
               </div>
           </>
           }

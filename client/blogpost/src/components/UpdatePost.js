@@ -65,12 +65,12 @@ export default function UpdatePost ({updatePost}) {
     <h2 className="createblog">Update a Blog</h2>
     <Form className="formsize" onSubmit = {onSubmit}>
         <Form.Group className="ms-3">
-            <Form.Label>Title</Form.Label>
-            <Form.Control type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
+            <Form.Label htmlFor="title">Title</Form.Label>
+            <Form.Control id = "title" type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
         </Form.Group>
         <Form.Group className="ms-3">
-            <Form.Label>Description</Form.Label>
-            <Form.Control as="textarea" rows={3} value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
+            <Form.Label htmlFor="description">Description</Form.Label>
+            <Form.Control id = "description" as="textarea" rows={3} value={description} onChange={(e) => {setDescription(e.target.value)}} required/>
         </Form.Group>
         <Form.Group className="ms-3">
             <Form.Label>Image</Form.Label>

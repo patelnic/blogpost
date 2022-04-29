@@ -13,5 +13,5 @@ test('Post', () => {
   
 
     render(<MemoryRouter><Post key = {post._id} post = {post} deleteBlogPost= {post}/></MemoryRouter>);
-    const postTitle = screen.getByRole("Link")
+    const postTitle = screen.getByRole("heading", {name: "Test"})
   });

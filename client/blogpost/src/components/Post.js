@@ -11,7 +11,7 @@ export default function Post({post, deleteBlogPost}) {
 
   return ( 
     <>
-    <li>
+    <li data-testid= 'post'>
         <img className = "blog_post_image" src= {post.images} alt="images" />
             <Link to = {'/' + post._id}><h2 className = "align-left">{post.title}</h2></Link>
             <p id = 'post_details' className = "align-left">
