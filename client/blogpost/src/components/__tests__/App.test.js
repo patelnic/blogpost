@@ -15,13 +15,13 @@ jest.mock('@auth0/auth0-react', () => ({
     }
 })); 
 
-test('click button shows form', async () => {
+test('Get Forecast button shows weather prediction', async () => {
     render(
         <MemoryRouter>
             <Auth0Provider>
                 <App />
             </Auth0Provider>
         </MemoryRouter>)
-    const addButton = screen.getByRole("button", { name: 'Get Forecast' });
-    expect(addButton).toBeInTheDocument();
+    const getForecastButton = screen.getByRole("button", { name: 'Get Forecast' });
+    expect(getForecastButton).toBeInTheDocument();
 });

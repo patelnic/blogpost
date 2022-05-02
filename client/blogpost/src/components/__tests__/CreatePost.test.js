@@ -5,16 +5,15 @@ import userEvent from '@testing-library/jest-dom';
 
 test('Create Post', async () => {
     const post = {
-        _id: 1,
         title: "Test",
         images: {},
         date: "",
         description: "test",
-        user: ""
+        email:""
       };
     render(
         <MemoryRouter>
-            <CreatePost createPost = {post} />
+            <CreatePost createPost={post}/>
         </MemoryRouter>)
     const postTitle = screen.getByLabelText(/title/i);
     expect(postTitle).toBeInTheDocument();
@@ -26,7 +25,4 @@ test('Create Post', async () => {
     expect(postTitle.value).toBe("Test");
     await user.type(postDescription, "Test");
     expect(postDescription.value).toBe("Test");
-    
-    //await user.type(postTitle, 'Project');
-    //expect(postTitle.value).toBe('Project');
 });
