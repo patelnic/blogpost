@@ -11,7 +11,7 @@ export default function CreatePost ({createPost}) {
     const [images, setImages] = useState([]);
 
     const { user } = useAuth0();
-    const { name, picture, email } = user;
+    const { email } = user;
     //const [imageURLs, setImageURLs] = useState([]);
     const options = { 
         month: 'long', 
